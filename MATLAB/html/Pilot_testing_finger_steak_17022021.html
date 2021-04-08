@@ -1,0 +1,206 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Pilot_testing_finger_steak_17022021</title><meta name="generator" content="MATLAB 9.8"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-02-18"><meta name="DC.source" content="Pilot_testing_finger_steak_17022021.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1></h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">System identification of cutting in steak with arthroscopic grasper</a></li><li><a href="#2">Import file into Matlab. File should be in txt-format.</a></li><li><a href="#3">We need to rearrange the data on the form iddata(output,input,sampling time)</a></li><li><a href="#4">First, we check the sampling time</a></li><li><a href="#5">Now, lets structure our data as iddata</a></li><li><a href="#6">Visualize the data before starting system identification</a></li></ul></div><h2 id="1">System identification of cutting in steak with arthroscopic grasper</h2><p>By &Oslash;ystein Bjelland, IIR, NTNU</p><pre class="codeinput">clear;
+clc;
+close <span class="string">all</span>;
+</pre><h2 id="2">Import file into Matlab. File should be in txt-format.</h2><pre class="codeinput">filename = <span class="string">'45678_Pilot1_finger_17022021_FILTERED.txt'</span>; <span class="comment">%File must be located in same folder</span>
+A = importdata(filename);
+</pre><h2 id="3">We need to rearrange the data on the form iddata(output,input,sampling time)</h2><pre class="codeinput">inputAngle_raw = A(:,2);  <span class="comment">%Input angle [deg]</span>
+outputFingerForce_raw = A(:,1);   <span class="comment">%Output finger force [N]</span>
+time_raw = A(:,3);  <span class="comment">%Raw time from millis() in Arduino [milliseconds]</span>
+
+time = zeros(length(time_raw),1);
+Ts_vect = [];
+</pre><h2 id="4">First, we check the sampling time</h2><pre class="codeinput"><span class="keyword">for</span> i = 2:length(time_raw)
+
+   Ts = time_raw(i) - time_raw(i-1);
+   Ts_vect = [Ts_vect, Ts];
+
+   time(i) = (time_raw(i) - time_raw(1))/1000; <span class="comment">%Starting the time vector from zero and converting from ms to s.</span>
+
+<span class="keyword">end</span>
+
+maxTs = max(Ts_vect);
+disp(<span class="string">'Maximum sample time [ms]: '</span>)
+disp(maxTs)
+
+minTs = min(Ts_vect);
+disp(<span class="string">'Minimum sample time [ms]: '</span>)
+disp(minTs)
+
+Ts_average = mean(Ts_vect);
+disp(<span class="string">'The average sample time is [ms]'</span>)
+disp(Ts_average)
+
+disp(<span class="string">'Our sampling time is, Ts [sec]'</span>)
+Ts = round(Ts_average)*10^-3;
+disp(Ts)
+</pre><pre class="codeoutput">Maximum sample time [ms]: 
+       10871
+
+Minimum sample time [ms]: 
+    12
+
+The average sample time is [ms]
+   66.0187
+
+Our sampling time is, Ts [sec]
+    0.0660
+
+</pre><h2 id="5">Now, lets structure our data as iddata</h2><pre class="codeinput">FINGER_FORCE_DATA_1 = iddata(outputFingerForce_raw, inputAngle_raw, Ts);
+</pre><h2 id="6">Visualize the data before starting system identification</h2><pre class="codeinput">figure(1)
+
+subplot(2,1,1)
+plot(time, inputAngle_raw)
+grid <span class="string">on</span>
+xlabel(<span class="string">'time [s]'</span>)
+ylabel(<span class="string">'Angle (deg)'</span>)
+
+subplot(2,1,2)
+plot(time, outputFingerForce_raw)
+grid <span class="string">on</span>
+xlabel(<span class="string">'time [s]'</span>)
+ylabel(<span class="string">'Finger Force [no unit]'</span>)
+</pre><img vspace="5" hspace="5" src="Pilot_testing_finger_steak_17022021_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+
+
+%% System identification of cutting in steak with arthroscopic grasper
+% By Øystein Bjelland, IIR, NTNU
+
+clear;
+clc;
+close all;
+
+%% Import file into Matlab. File should be in txt-format.
+filename = '45678_Pilot1_finger_17022021_FILTERED.txt'; %File must be located in same folder
+A = importdata(filename);
+
+%% We need to rearrange the data on the form iddata(output,input,sampling time)
+
+inputAngle_raw = A(:,2);  %Input angle [deg]
+outputFingerForce_raw = A(:,1);   %Output finger force [N]
+time_raw = A(:,3);  %Raw time from millis() in Arduino [milliseconds]
+
+time = zeros(length(time_raw),1);
+Ts_vect = [];
+
+
+
+%% First, we check the sampling time
+
+for i = 2:length(time_raw)
+  
+   Ts = time_raw(i) - time_raw(i-1);
+   Ts_vect = [Ts_vect, Ts];
+   
+   time(i) = (time_raw(i) - time_raw(1))/1000; %Starting the time vector from zero and converting from ms to s.
+   
+end
+
+maxTs = max(Ts_vect);
+disp('Maximum sample time [ms]: ')
+disp(maxTs)
+
+minTs = min(Ts_vect);
+disp('Minimum sample time [ms]: ') 
+disp(minTs)
+
+Ts_average = mean(Ts_vect);
+disp('The average sample time is [ms]')
+disp(Ts_average)
+
+disp('Our sampling time is, Ts [sec]')
+Ts = round(Ts_average)*10^-3;
+disp(Ts)
+
+%% Now, lets structure our data as iddata
+
+FINGER_FORCE_DATA_1 = iddata(outputFingerForce_raw, inputAngle_raw, Ts);
+
+%% Visualize the data before starting system identification
+
+figure(1)
+
+subplot(2,1,1)
+plot(time, inputAngle_raw)
+grid on
+xlabel('time [s]')
+ylabel('Angle (deg)')
+
+subplot(2,1,2)
+plot(time, outputFingerForce_raw)
+grid on
+xlabel('time [s]')
+ylabel('Finger Force [no unit]')
+
+
+##### SOURCE END #####
+--></body></html>
