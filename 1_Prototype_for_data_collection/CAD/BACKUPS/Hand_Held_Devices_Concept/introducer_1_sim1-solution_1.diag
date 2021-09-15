@@ -1,0 +1,65 @@
+
+*** 10:17:07 *** 
+Starting Nastran Exporter
+
+*** 10:17:07 *** 
+Writing file 
+C:\Users\objel\OneDrive\Documents\NX\Force_Data_Collection\Hand_Held_Devices_Concept\introducer_1_sim1-solution_1.dat
+ 
+*** 10:17:07 *** 
+Writing SIMCENTER NASTRAN 2020.1 compatible deck
+
+*** 10:17:07 *** 
+Writing Nastran System section
+
+*** 10:17:07 *** 
+Writing File Management section
+
+*** 10:17:07 *** 
+Writing Executive Control section
+
+*** 10:17:07 *** 
+Writing Case Control section
+
+*** 10:17:07 *** 
+Writing Bulk Data section
+
+*** 10:17:07 *** 
+Writing Nodes
+
+*** 10:17:07 *** 
+Writing Elements
+
+*** 10:17:07 *** 
+Writing Physical Properties
+
+*** 10:17:07 *** 
+Writing Materials
+
+*** 10:17:07 *** 
+Writing Degree-of-Freedom Sets
+
+*** 10:17:07 *** 
+Writing Loads and Constraints
+
+*** 10:17:07 *** 
+Writing Coordinate Systems
+
+*** 10:17:07 *** 
+Summary of Bulk Data cards written
+
++----------+----------+
+|   NAME   |  NUMBER  |
++----------+----------+
+| CTETRA   | 7684     |
+| FORCE    | 39       |
+| GRID     | 13983    |
+| MAT1     | 1        |
+| PARAM    | 6        |
+| PSOLID   | 1        |
+| SPC      | 266      |
++----------+----------+
+
+*** 10:17:07 *** 
+Nastran Deck Successfully Written
+

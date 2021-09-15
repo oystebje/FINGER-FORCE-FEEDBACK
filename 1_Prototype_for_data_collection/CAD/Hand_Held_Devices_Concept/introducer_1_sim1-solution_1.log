@@ -1,0 +1,103 @@
+Simcenter Nastran 2020.1 (Intel64 Family 6 Model 158 Stepping 13 Windows 10  ) Control File:
+--------------------------------------------------------------------------------------
+Nastran BUFFSIZE=32769 $(c:/program files/siemens/nx1899/nxnastran/conf/nastran.rcf[1])
+Nastran BUFFPOOL=20.0X $(c:/program files/siemens/nx1899/nxnastran/conf/nastran.rcf[4])
+Nastran DIAGA=128 DIAGB=0 $(c:/program files/siemens/nx1899/nxnastran/conf/nastran.rcf[8])
+Nastran SYSTEM(442)=2 $(command line[5])
+Nastran REAL=4273209344 $(Memory limit for MPI and other specialized modules)
+JID='C:\Users\objel\OneDrive\Documents\NX\Force_Data_Collection\Hand_Held_Devices_Concept\introducer_1_sim1-solution_1.dat'
+OUT='./introducer_1_sim1-solution_1'
+MEM=1923651584
+MACH='Intel64 Family 6 Model 158 Stepping 13'
+OPER='Windows 10'
+OSV=' '
+MODEL='Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz (DESKTOP-D89SU8V)'
+CONFIG=8666
+NPROC=16
+symbol=DELDIR='c:/program files/siemens/nx1899/nxnastran/scnas/nast/del' $(program default)
+symbol=DEMODIR='c:/program files/siemens/nx1899/nxnastran/scnas/nast/demo' $(program default)
+symbol=SSSALTERDIR='c:/program files/siemens/nx1899/nxnastran/scnas/nast/misc/sssalter' $(program default)
+symbol=TPLDIR='c:/program files/siemens/nx1899/nxnastran/scnas/nast/tpl' $(program default)
+SDIR='c:/users/objel/appdata/local/temp/introducer_1_sim1-solution_1.T66488_8'
+DBS='c:/users/objel/appdata/local/temp/introducer_1_sim1-solution_1.T66488_8'
+SCR=yes
+SMEM=20.0X
+NEWDEL='c:/program files/siemens/nx1899/nxnastran/scnas/em64tntl/SSS'
+DEL='NXNDEF'
+AUTH='28000@nx.lisens.ntnu.no'
+AUTHQUE=0
+MSGCAT='c:/program files/siemens/nx1899/nxnastran/scnas/em64tntl/analysis.msg'
+MSGDEST='f06'
+PROG=bundle
+NEWS='c:/program files/siemens/nx1899/nxnastran/scnas/nast/news.txt'
+UMATLIB='libnxumat.dll'
+UCRPLIB='libucreep.dll'
+USOLLIB='libusol.dll'
+--------------------------------------------------------------------------------------
+NXN_ISHELLPATH=C:\Program Files\Siemens\NX1899\nxnastran\bin
+NXN_JIDPATH=
+PATH=c:/program files/siemens/nx1899/nxnastran/scnas/em64tntl;c:/program files/siemens/nx1899/nxnastran/scnas/em64tntl/sysnoise;c:/program files/siemens/nx1899/nxnastran/scnas/em64tntl/samcef;c:/program files/siemens/nx1899/nxnastran/scnas/em64tntl/impi/bin;c:/program files/siemens/nx1899/nxnastran/scnas/em64tntl/monitor;C:\Program Files\Siemens\NX1899\nxbin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;c:\Program Files (x86)\HP\HP Performance Advisor;C:\Program Files\MATLAB\R2020a\runtime\win64;C:\Program Files\MATLAB\R2020a\bin;C:\Program Files\Siemens\NX1899\CAPITALINTEGRATION\capitalnxremote\;C:\Program Files\dotnet\;C:\Users\objel\AppData\Local\Microsoft\WindowsApps;
+Command Line: introducer_1_sim1-solution_1.dat prog=bundle old=no scratch=yes sys442=2
+Current Dir: C:\Users\objel\OneDrive\Documents\NX\Force_Data_Collection\Hand_Held_Devices_Concept
+Executable:  c:/program files/siemens/nx1899/nxnastran/scnas/em64tntl/analysis.exe
+NXN_MSG:     stderr
+FPE:         no
+--------------------------------------------------------------------------------------
+Current resource limits:
+ Physical memory:                    32614 MB
+ Physical memory available:          19052 MB
+ Paging file size:                   37478 MB
+ Paging file size available:         17655 MB
+ Virtual memory:                 134217727 MB
+ Virtual memory available:       134213567 MB
+--------------------------------------------------------------------------------------
+System configuration:
+ Hostname:         DESKTOP-D89SU8V
+ Architecture:     em64tnt
+ Platform:         Intel64 Family 6 Model 158 Stepping 13 Windows 10  
+ Model:            Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz
+ Clock freq.:      3600 MHz
+ Number of CPUs:   16
+ Executable:       standard
+ Raw model ID:     8666
+ Config number:    8666
+ Physical memory:  32614 MB
+ Virtual memory:   37478 MB
+ Numeric format:   64-bit little-endian IEEE.
+ Bytes per word:   8
+ Disk block size:  512 bytes (64 words)
+ Remote shell cmd: Remote capabilities not available.
+--------------------------------------------------------------------------------------
+Simcenter Nastran started  Fri Dec 18 10:17:08 WEST 2020
+ 10:17:08  Beginning Analysis
+
+ 10:17:08  Simcenter NASTRAN Authorization Information - System Attributes
+ 10:17:08  --------------------------------------------------------
+ 10:17:08  Model: Intel(R) Core(TM) i9-9900K CPU @
+ 10:17:08  Machine: Intel64 Family 6 Model 158 Stepp
+ 10:17:08  OS: Windows 10
+ 10:17:08  Version:
+ 10:17:08  License File(s): 28000@nx.lisens.ntnu.no
+
+
+ 10:17:08  Simcenter NASTRAN Licensing Information
+ 10:17:08  --------------------------------------
+ 10:17:08  Sold To ID:            1078760 - NTNU
+ 10:17:08  Webkey Access Code:    CAUB49A0US
+ 10:17:08  License File Issuer:   SIEMENS
+
+
+ 10:17:08  Simcenter NASTRAN Authorization Information - Checkout Successful
+ 10:17:08  -----------------------------------------------------------------
+ 10:17:08  License for module Simcenter Nastran Basic - NX Desktop (Bundle)  checked out successfully
+
+ 10:17:08  Loading Shared Library C:\Program Files\Siemens\NX1899\nxcae_extras\tmg\exe\mayamoncomm.dll
+
+Starting viewer with UGII_MONITOR_DIR set to 'C:\Program Files\Siemens\NX1899\nxcae_extras\tmg\exe'
+Starting monitor viewer at C:\Program Files\Siemens\NX1899\nxcae_extras\tmg\exe/xcsmon_viewer.exe
+ 10:17:17  NSEXIT: EXIT(0)
+ 10:17:17  Analysis complete  0
+Real:        9.508 seconds ( 0:00:09.508)
+User:        5.421 seconds ( 0:00:05.421)
+Sys:         1.109 seconds ( 0:00:01.109)
+Simcenter Nastran finished Fri Dec 18 10:17:18 WEST 2020
